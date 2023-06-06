@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/Components/Custom_Card/index.dart';
 
 class Carousels extends StatelessWidget {
+  
   final List<CustomCard> items = [
     const CustomCard(
         title: "Hello 1",
@@ -38,11 +39,11 @@ class Carousels extends StatelessWidget {
   // const Carousels({super.key});
 
   @override
+
   Widget build(BuildContext context) {
     return Container(
-      // width: MainAxisSize(M),
       child: CarouselSlider(
-          options: CarouselOptions(height : 300,enableInfiniteScroll: true),
+          options: CarouselOptions(height : MediaQuery.of(context).size.height * 0.4,enableInfiniteScroll: true),
           items: items.map((item) {
             return Container(
               // width: 150,

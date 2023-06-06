@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/font_style.dart';
 
 class CustomCard extends StatelessWidget {
   final String title;
@@ -16,23 +17,13 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(top: 10, left: 10),
-        width: 150,
-        height: 500,
+        width: MediaQuery.of(context).size.width * 0.7,
+        height: MediaQuery.of(context).size.height * 0.4,
         clipBehavior: Clip.hardEdge,
         // padding: EdgeInsets.only(left: 15, right: 15, bottom: 20),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Color.fromARGB(255, 23, 23, 23).withOpacity(0.3),
-                spreadRadius: 0,
-                blurRadius: 10,
-                offset: Offset(
-                    0, 8), // changes the shadow direction, adjust as needed
-              ),
-            ],
-            border:
-                Border.all(color: const Color.fromARGB(255, 156, 157, 158))),
+            border: Border.all(color: Color.fromARGB(255, 205, 205, 205))),
         child: Container(
             color: Colors.white,
             // clipBehavior: Clip.hardEdge,
@@ -41,6 +32,7 @@ class CustomCard extends StatelessWidget {
                   ? Image(
                       image: AssetImage(image),
                       // width: 150,
+                      // height: 400,
                     )
                   : Image.network(image),
               Container(
@@ -50,13 +42,13 @@ class CustomCard extends StatelessWidget {
                     const SizedBox(height: 5),
                     Text(
                       title,
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: cardTitle,
                     ),
                     const SizedBox(height: 5),
-                    Text(desc)
+                    Text(
+                      desc,
+                      style: cardDesc,
+                    )
                   ],
                 ),
               )
